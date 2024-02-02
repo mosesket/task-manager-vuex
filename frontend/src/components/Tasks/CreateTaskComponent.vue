@@ -8,7 +8,7 @@ export default {
             results: "",
             tasks: {
                 title: "",
-                body: "",
+                description: "",
             },
             isLoading: false,
             isLoadingTitle: "Loading",
@@ -17,7 +17,7 @@ export default {
 
     methods: {
         createTask() {
-            if (this.tasks.body == "") {
+            if (this.tasks.description == "") {
                 this.$toast.warning("The body Field is required");
             } else if (this.tasks.title == "") {
                 this.$toast.warning("The title Field is required");
@@ -29,11 +29,6 @@ export default {
             }
         },
     },
-    async mounted() {
-        await axios.get("http://127.0.0.1:8000/api/user").then((res) => {
-            this.results = res.data;
-        });
-    },
 };
 </script>
 
@@ -41,13 +36,7 @@ export default {
     <div class="mt-5 container">
         <h1>Task create page</h1>
         <div class="card">
-            <div class="card-header">
-                <h4>
-                    Add Task
-                </h4>
-            </div>
             <div class="card-body">
-                <h2>Welcome {{ results ? results.name : "we" }}</h2>
                 <div v-if="isLoading">
                     <h3>Saving Task...</h3>
                 </div>
@@ -59,7 +48,7 @@ export default {
                         </div>
                         <div class="mb-3">
                             <label for=""> Body</label>
-                            <input type="text" class="form-control" v-model="tasks.body" />
+                            <input type="text" class="form-control" v-model="tasks.description" />
                         </div>
                         <div class="mb-3">
                             <button class="btn btn-success">save</button>

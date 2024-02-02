@@ -1,5 +1,5 @@
 <template>
-    <div class="mt-5 col-md-5 mx-auto">
+    <div class="mt-5 col-md-10 mx-auto">
         <div class="div">
             <div class="card bg-light ms-4 me-4 mb-4">
                 <div class="card-header">Task Records</div>

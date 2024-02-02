@@ -13,11 +13,10 @@ export const SET_TASK = (state, task) => {
 };
 
 export const UPDATE_TASK = (state, updatedTask) => {
-  // state.tasks = updatedTask;
   state.tasks.map((task) => {
     if (task.id === updatedTask.id) {
       task.title = updatedTask.title;
-      task.body = updatedTask.body;
+      task.body = updatedTask.description;
     }
   });
 };
