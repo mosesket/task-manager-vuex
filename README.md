@@ -10,4 +10,5 @@ setup database, run migration: php artisan migrate
 using sanctum for authentication, in api.php
 add route along with task controller methods
 created a new postman collection, set base url as http://127.0.0.1:8000/api
-created new postman request, upadte task model to accept fillable fields, created all task mwthods
+created new postman request, upadte task model to accept fillable fields, created all task methods
+add sanctum auth to api routes, create login and register api
