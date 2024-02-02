@@ -19,3 +19,7 @@ link to postman documentation https://documenter.getpostman.com/view/15288726/2s
 2. Vue Application
 install bootstrap, vuex and axios
 npm install bootstrap, npm install vuex, npm install axios
+update the views
+
+
+to run use npm run dev
