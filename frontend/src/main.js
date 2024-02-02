@@ -1,8 +1,27 @@
-import 'bootstrap/dist/css/bootstrap.css'
-import { createApp } from 'vue'
-import App from './App.vue'
-import store from './store'
+import "./assets/main.css";
 
-const app = createApp(App)
-app.use(store)
-app.mount('#app')
+import { createApp } from "vue";
+import App from "./App.vue";
+import router from "./router";
+import axios from "axios";
+import Vuex from "vuex";
+import ToastPlugin from "vue-toast-notification";
+import "vue-toast-notification/dist/theme-bootstrap.css";
+import store from "./store";
+
+axios.defaults.baseURL = "http://127.0.0.1:8000";
+axios.defaults.headers.post["Content-Type"] = "multipart/form-data";
+axios.defaults.headers.post["Accept"] = "application/json";
+axios.defaults.withCredentials = true;
+axios.interceptors.request.use(function (config) {
+  const token = localStorage.getItem("auth_t");
+  config.headers.Authorization = token ? `Bearer ${token}` : "";
+  return config;
+});
+
+const app = createApp(App);
+app.use(router);
+app.use(store);
+app.use(Vuex);
+app.use(ToastPlugin);
+app.mount("#app");
